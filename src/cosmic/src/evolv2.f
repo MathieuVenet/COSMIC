@@ -1824,6 +1824,9 @@ component.
 *
  7    km0 = dtm0*1.0d+03/tb
       if(km0.lt.tiny) km0 = 0.5d0
+* Check for collision at periastron for a stable RLOF 
+      pd = sep*(1.d0 - ecc)
+      if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130
 *
 * Force co-rotation of primary and orbit to ensure that the tides do not
 * lead to unstable Roche (not currently used).
