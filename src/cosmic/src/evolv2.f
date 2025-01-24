@@ -1900,6 +1900,7 @@ component.
      &              deltam1_bcm,deltam2_bcm,formation(1),
      &              formation(2),binstate,mergertype,'bpp')
 *
+
       if(check_dtp.eq.1)then
           CALL checkstate(dtp,dtp_original,tsave,tphys,tphysf,
      &                      iplot,isave,binstate,evolve_type,
@@ -1915,7 +1916,10 @@ component.
      &                      tacc(1),tacc(2),epoch(1),epoch(2),
      &                      bhspin(1),bhspin(2),teff1,teff2)
       endif
-
+      
+      pd = sep*(1.d0 - ecc)
+      if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130
+      
       if(iplot.and.tphys.gt.tiny)then
           if(B_0(1).eq.0.d0)then !PK.
               b01_bcm = 0.d0
@@ -1959,6 +1963,9 @@ component.
      & mass(2),rad(1),rad(2),ospin(1),ospin(2),jspin(1)
 *     & mass(2),rad(1),rad(2),ospin(1),ospin(2),b01_bcm,b02_bcm,jspin(1)
       endif
+
+      pd = sep*(1.d0 - ecc)
+      if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130      
 *
 * Eddington limit for accretion on to the secondary in one orbit.
 *
