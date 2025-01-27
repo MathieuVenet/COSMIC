@@ -1963,10 +1963,8 @@ component.
      & mass(2),rad(1),rad(2),ospin(1),ospin(2),jspin(1)
 *     & mass(2),rad(1),rad(2),ospin(1),ospin(2),b01_bcm,b02_bcm,jspin(1)
       endif
+   
 
-      pd = sep*(1.d0 - ecc)
-      if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130      
-*
 * Eddington limit for accretion on to the secondary in one orbit.
 *
  8    dme = 2.08d-03*eddfac*(1.d0/(1.d0 + zpars(11)))*rad(j2)*tb
@@ -3535,6 +3533,8 @@ component.
          CALL star(kw,m0,mt,tm,tn,tscls,lums,GB,zpars)
          CALL hrdiag(m0,age,mt,tm,tn,tscls,lums,GB,zpars,
      &               rm,lum,kw,mc,rc,me,re,k2,bhspin(k),k)
+         pd = sep*(1.d0 - ecc)
+         if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130
 *
 * Check for a supernova and correct the semi-major axis if so.
 *
