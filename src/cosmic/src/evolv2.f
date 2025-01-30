@@ -3784,7 +3784,8 @@ component.
          else
             b02_bcm = B(2)
          endif
-
+         pd = sep*(1.d0 - ecc)
+         if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130         
          CALL writetab(jp,tphys,evolve_type,
      &                    mass(1),mass(2),kstar(1),kstar(2),
      &                    sep,tb,ecc,rrl1,rrl2,
