@@ -1826,7 +1826,7 @@ component.
       if(km0.lt.tiny) km0 = 0.5d0
 * Check for collision at periastron for a stable RLOF 
       pd = sep*(1.d0 - ecc)
-      if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130
+      if(pd.lt.(rad(1)+rad(2))) goto 130
 *
 * Force co-rotation of primary and orbit to ensure that the tides do not
 * lead to unstable Roche (not currently used).
@@ -3534,7 +3534,7 @@ component.
          CALL hrdiag(m0,age,mt,tm,tn,tscls,lums,GB,zpars,
      &               rm,lum,kw,mc,rc,me,re,k2,bhspin(k),k)
          pd = sep*(1.d0 - ecc)
-         if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130
+         if(pd.lt.(rad(1)+rad(2))) goto 130
 *
 * Check for a supernova and correct the semi-major axis if so.
 *
@@ -3784,8 +3784,6 @@ component.
          else
             b02_bcm = B(2)
          endif
-         pd = sep*(1.d0 - ecc)
-         if(pd.lt.(rad(1)+rad(2)).and.intpol.eq.0) goto 130         
          CALL writetab(jp,tphys,evolve_type,
      &                    mass(1),mass(2),kstar(1),kstar(2),
      &                    sep,tb,ecc,rrl1,rrl2,
