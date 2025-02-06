@@ -2483,7 +2483,7 @@ component.
             b02_bcm = B(2)
          endif
          
-         DO j = 1, 2  
+         DO j = j1, j2  
          age = tphys - epoch(j)
          aj0(j) = age
          kw = kstar(j)
