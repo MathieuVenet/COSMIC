@@ -7,6 +7,8 @@
       IMPLICIT NONE
       INCLUDE 'const_bse.h'
       INCLUDE 'checkstate.h'
+      INTEGER j
+      
 ***
 *
 *           B I N A R Y
