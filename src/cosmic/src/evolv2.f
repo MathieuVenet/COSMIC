@@ -2480,7 +2480,25 @@ component.
          else
             b02_bcm = B(2)
          endif
+         
+         DO j = 1, 2  
+         age = tphys - epoch(j)
+         aj0(j) = age
+         kw = kstar(j)
+         m0 = mass0(j)
+         mt = mass(j)
+         mc = massc(j)
+         if(intpol.eq.0) mcxx(j) = mc
+         if(intpol.gt.0) mc = mcxx(j)
+         mass00(j) = m0
 
+         CALL star(kw, m0, mt, tm, tn, tscls, lums, GB, zpars)
+
+         CALL hrdiag(m0, age, mt, tm, tn, tscls, lums, GB, zpars,
+     &               rm, lum, kw, mc, rc, me, re, k2, bhspin(j), j)
+
+
+         END DO 
          CALL writetab(jp,tphys,evolve_type,
      &                 mass1_bpp,mass2_bpp,
      &                 kstar(1),kstar(2),sep,
