@@ -4,7 +4,7 @@
      &                  ZPARS,ECC,SEP,JORB,COEL,star1,star2,vk,
      &                  kick_info,formation1,formation2,sigmahold,
      &                  bhspin1,bhspin2,binstate,mergertype,
-     &                  jp,tphys,switchedCE,rad,tms,evolve_type,disrupt,
+     &                  jp,tphys,switchedCE,rad,radc,tms,evolve_type,disrupt,
      &                  lumin,B_0,bacc,tacc,epoch,menv_bpp,renv_bpp,
      &                  bkick,deltam_1,deltam_2)
       IMPLICIT NONE
@@ -58,7 +58,7 @@
       REAL*8 massc1_bpp,massc2_bpp,rad1_bpp,rad2_bpp
       REAL*8 q1_bpp,q2_bpp,teff1,teff2
       REAL*8 KW1_TEMP, KW2_TEMP
-      REAL*8 rad(2),tms(2),lumin(2),B_0(2),bacc(2),tacc(2),epoch(2)
+      REAL*8 rad(2),radc(2),tms(2),lumin(2),B_0(2),bacc(2),tacc(2),epoch(2)
       REAL*8 menv_bpp(2),renv_bpp(2)
 *
 * Initialize
@@ -1085,6 +1085,7 @@
       rad(1) = R1
       menv_bpp(1) = MENV
       renv_bpp(1) = RENV
+      radc(1) = RC1
 
       CALL star(KW2, M02, M2, TM2, TN, TSCLS2, LUMS, GB, ZPARS)
       CALL hrdiag(M02, AJ2, M2, TM2, TN, TSCLS2, LUMS, GB, ZPARS,  
@@ -1094,6 +1095,7 @@
       rad(2) = R2
       menv_bpp(2) = MENV
       renv_bpp(2) = RENV
+      radc(2) = RC2
 
       if(output) write(*,*)'end of CE1:',KW1,M1,M01,R1,MENV,RENV
       if(output) write(*,*)'end of CE1:',KW2,M2,M02,R2,MENV,RENV
