@@ -2408,7 +2408,7 @@ component.
      &               jspin(j2),kstar(j2),zpars,ecc,sep,jorb,coel,j1,j2,
      &               vk,kick_info,formation(j1),formation(j2),sigmahold,
      &               bhspin(j1),bhspin(j2),binstate,mergertype,
-     &               jp,tphys,switchedCE,rad,tms,evolve_type,disrupt,
+     &               jp,tphys,switchedCE,rad,radc,tms,evolve_type,disrupt,
      &               lumin,B_0,bacc,tacc,epoch,menv,renv,bkick,
      &               deltam1_bcm,deltam2_bcm)
          if(j1.eq.2.and.kcomp2.eq.13.and.kstar(j2).eq.15.and.
