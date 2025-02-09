@@ -1075,6 +1075,17 @@
          JSPIN2 = OSPIN2*(K22*R2*R2*(M2-MC2)+K3*RC2*RC2*MC2)
       ENDIF
    30 SEP = SEPF
+      CALL star(KW1, M01, M1, TM1, TN, TSCLS1, LUMS, GB, ZPARS)
+      CALL star(KW2, M02, M2, TM2, TN, TSCLS2, LUMS, GB, ZPARS)
+
+      CALL hrdiag(M01, AJ1, M1, TM1, TN, TSCLS1, LUMS, GB, ZPARS,  
+     &      R1, L1, KW1, MC1, RC1, MENV, RENV, K21,  
+     &      bhspin1, star1)
+
+      CALL hrdiag(M02, AJ2, M2, TM2, TN, TSCLS2, LUMS, GB, ZPARS,  
+     &      R2, L2, KW2, MC2, RC2, MENV, RENV, K22,  
+     &      bhspin2, star2)
+
       if(output) write(*,*)'end of CE1:',KW1,M1,M01,R1,MENV,RENV
       if(output) write(*,*)'end of CE1:',KW2,M2,M02,R2,MENV,RENV
       sigma = sigmahold
