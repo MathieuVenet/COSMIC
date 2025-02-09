@@ -1085,7 +1085,9 @@
       CALL hrdiag(M02, AJ2, M2, TM2, TN, TSCLS2, LUMS, GB, ZPARS,  
      &      R2, L2, KW2, MC2, RC2, MENV, RENV, K22,  
      &      bhspin2, star2)
-
+     
+      rad(1) = R1
+      rad(2) = R2
       if(output) write(*,*)'end of CE1:',KW1,M1,M01,R1,MENV,RENV
       if(output) write(*,*)'end of CE1:',KW2,M2,M02,R2,MENV,RENV
       sigma = sigmahold
