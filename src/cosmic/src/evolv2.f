@@ -3949,7 +3949,7 @@ component.
      &               jspin(j2),kstar(j2),zpars,ecc,sep,jorb,coel,j1,j2,
      &               vk,kick_info,formation(j1),formation(j2),sigmahold,
      &               bhspin(j1),bhspin(j2),binstate,mergertype,
-     &               jp,tphys,switchedCE,rad,tms,evolve_type,disrupt,
+     &               jp,tphys,switchedCE,rad,radc,tms,evolve_type,disrupt,
      &               lumin,B_0,bacc,tacc,epoch,menv,renv,bkick,
      &               deltam1_bcm,deltam2_bcm)
          if(output) write(*,*)'coal1:',tphys,kstar(j1),kstar(j2),coel,
@@ -4033,7 +4033,7 @@ component.
      &               jspin(j1),kstar(j1),zpars,ecc,sep,jorb,coel,j2,j1,
      &               vk,kick_info,formation(j2),formation(j1),sigmahold,
      &               bhspin(j2),bhspin(j1),binstate,mergertype,
-     &               jp,tphys,switchedCE,rad,tms,evolve_type,disrupt,
+     &               jp,tphys,switchedCE,rad,radc,tms,evolve_type,disrupt,
      &               lumin,B_0,bacc,tacc,epoch,menv,renv,bkick,
      &               deltam1_bcm,deltam2_bcm)
          if(output) write(*,*)'coal2:',tphys,kstar(j1),kstar(j2),coel,
