@@ -2498,6 +2498,7 @@ component.
      &                 formation(2),binstate,mergertype,'bpp')
 *
          epoch(j1) = tphys - aj(j1)
+         com = .false.
          if(coel)then
             com = .true.
             goto 135
