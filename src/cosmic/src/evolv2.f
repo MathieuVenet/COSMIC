@@ -2448,13 +2448,33 @@ component.
 
 *
          evolve_type = 8.0
-         
+         WRITE(*,*) 'Etoile 1 avant star.f:'
+         WRITE(*,*) '  kstar =', kstar(1), ' rc =', radc(1)
+         WRITE(*,*) '  r =', rad(1), ' masse =', mass(1)
+         WRITE(*,*) '  mass_0 =', mass0(1)
+
+         WRITE(*,*) 'Etoile 2 avant star.f:'
+         WRITE(*,*) '  kstar =', kstar(2), ' rc =', radc(2)
+         WRITE(*,*) '  r =', rad(2), ' masse =', mass(2)
+
          age = tphys - epoch(1)
          mc = massc(1)
          rc = radc(1)
          CALL star(kstar(1),mass0(1),mass(1),tm,tn,tscls,lums,GB,zpars)
+         WRITE(*,*) 'Etoile 1 après star.f :'
+         WRITE(*,*) '  kstar =', kstar(1), ' rc =', radc(1)
+         WRITE(*,*) '  r =', rad(1), ' masse =', mass(1)
+         WRITE(*,*) '  mass_0 =', mass0(1)
+         WRITE(*,*) 'lums =', lums
+         
          CALL hrdiag(mass0(1),age,mass(1),tm,tn,tscls,lums,GB,zpars,
      &               rm,lum,kstar(1),mc,rc,me,re,k2,bhspin(1),1)
+
+         WRITE(*,*) 'Etoile 1 après hrdiag :'
+         WRITE(*,*) '  kstar =', kstar(1), ' rc =', rc
+         WRITE(*,*) '  r =', rm, ' masse =', mass(1)
+         WRITE(*,*) '  mass_0 =', mass0(1)
+         WRITE(*,*) 'lums =', lums
          aj(1) = age
          epoch(1) = tphys - age
          rad(1) = rm
