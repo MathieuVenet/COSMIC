@@ -4108,6 +4108,33 @@ component.
 
       if(com)then
           evolve_type = 8.0
+          mc = massc(1)
+          rc = radc(1)
+          CALL star(kstar(1),mass0(1),mass(1),tm,tn,tscls,lums,GB,zpars)
+          CALL hrdiag(mass0(1),aj(1),mass(1),tm,tn,tscls,lums,GB,zpars,
+     &               rm,lum,kstar(1),mc,rc,me,re,k2,bhspin(1),1)
+     
+          rad(1) = rm
+          lumin(1) = lum  
+          massc(1) = mc
+          radc(1) = rc
+          menv(1) = me
+          renv(1) = re
+         
+         
+          mc = massc(2)
+          rc = radc(2)
+          CALL star(kstar(2),mass0(2),mass(2),tm,tn,tscls,lums,GB,zpars)
+          CALL hrdiag(mass0(2),aj(2),mass(2),tm,tn,tscls,lums,GB,zpars,
+     &               rm,lum,kstar(2),mc,rc,me,re,k2,bhspin(2),2)
+     
+          rad(2) = rm
+          lumin(2) = lum  
+          massc(2) = mc
+          radc(2) = rc
+          menv(2) = me
+          renv(2) = re
+
           mass1_bpp = mass(1)
           mass2_bpp = mass(2)
           if(kstar(1).eq.15) mass1_bpp = mass0(1)
